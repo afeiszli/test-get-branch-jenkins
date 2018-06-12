@@ -1,6 +1,6 @@
 node {
     def VERSION='null'
-    def sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+    def MY_BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
     //def MY_BRANCH = sh(script: 'rev=$(git name-rev --name-only HEAD)', returnStdout: true)
     //if(env.BRANCH_NAME.contains('feature')){   
 //        VERSION=getGitBranchVersion()    
