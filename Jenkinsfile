@@ -1,5 +1,5 @@
 node {
-    def BRANCH_NAME= getGitBranchName
+    def BRANCH_NAME=getGitBranchName()
     stage('Checkout'){
         checkout scm
     }
