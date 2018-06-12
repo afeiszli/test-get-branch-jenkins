@@ -7,8 +7,8 @@ node {
         //checkout scm[$class: 'LocalBranch', localBranch: "**"]
         checkout scm
         VERSION=getGitBranchVersion()
-        sh """echo env.BRANCH_NAME"""
-        sh """echo ${build number}"""
+        sh """echo ${env.BRANCH_NAME}"""
+        sh """echo ${BUILD_NUMBER}"""
         sh """echo currentBuild.number"""
     }
     stage('test name'){
