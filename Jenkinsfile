@@ -1,5 +1,7 @@
 node {
-    def BRANCH_NAME=getGitBranchName()
+    if(scm.branches[0].name.contains('feature')){   
+        def VERSION=getGitBranchVersion()
+    }
     stage('Checkout'){
         checkout scm
     }
@@ -7,6 +9,8 @@ node {
         sh """echo ${BRANCH_NAME}"""   
     }
 }
-def getGitBranchName() {
-    return scm.branches[0].name
+def getGitBranchVersion() {
+    def content = scm.branches[0].name
+    def result = (content =~ /(?<=feature).*/)[ 0 ]​[ 1 ]
+    return result
 }
