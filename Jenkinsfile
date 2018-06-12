@@ -13,7 +13,7 @@ node {
 }
 def getGitBranchVersion() {
     def content = scm.branches[0].name
-    def result = (content =~ /(?<=feature).*/)[0]
+    def result = (content =~ /(?<=feature).*/)[0][1]
 //    sh """echo $result"""
     return result
 //    return content
