@@ -1,6 +1,7 @@
 node {
+    def VERSION='nope'
     if(scm.branches[0].name.contains('feature')){   
-        def VERSION=getGitBranchVersion()
+        VERSION=getGitBranchVersion()
     }
     stage('Checkout'){
         checkout scm
