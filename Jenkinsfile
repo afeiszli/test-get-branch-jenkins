@@ -12,6 +12,6 @@ node {
 }
 def getGitBranchVersion() {
     def content = scm.branches[0].name
-    def result = (content =~ /(?<=feature).*/)[ 0 ]​[ 1 ]
+    def result = (content =~ /(?<=feature).*/)[ 0 ][ 1 ]
     return result
 }
