@@ -6,10 +6,11 @@ node {
     stage('Checkout'){
         //checkout scm[$class: 'LocalBranch', localBranch: "**"]
         checkout scm
-        VERSION=getGitBranchVersion()
+        //VERSION=getGitBranchVersion()
     }
     stage('test name'){
-        sh """echo ${VERSION}"""   
+        //sh """echo ${VERSION}"""   
+        sh "printenv"
     }
 }
 def getGitBranchVersion() {
