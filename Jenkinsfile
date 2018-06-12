@@ -13,9 +13,7 @@ node {
 }
 def getGitBranchVersion() {
     def content = env.BRANCH_NAME
-    def matcher = (content =~ /feature(.*)/)[0][1]
-//    assert matcher.matches()    
-//    return result
-//    return content
-    return matcher
+    def matcher = (content =~ /feature_(.*)/)
+    assert matcher.matches()    
+    return matcher[0][1]
 }
