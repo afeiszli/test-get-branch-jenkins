@@ -7,7 +7,7 @@ node {
         checkout scm
     }
     stage('test name'){
-        sh """echo ${BRANCH_NAME}"""   
+        sh """echo ${VERSION}"""   
     }
 }
 def getGitBranchVersion() {
