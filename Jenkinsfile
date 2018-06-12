@@ -3,7 +3,8 @@ node {
     //if(scm.branches[0].name.contains('feature')){   
    // }
     stage('Checkout'){
-        checkout scm[$class: 'LocalBranch', localBranch: "**"]
+        //checkout scm[$class: 'LocalBranch', localBranch: "**"]
+        checkout scm
         VERSION=getGitBranchVersion()
     }
     stage('test name'){
