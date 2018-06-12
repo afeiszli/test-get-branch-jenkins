@@ -8,6 +8,7 @@ node {
         checkout scm
         VERSION=getGitBranchVersion()
         sh """echo env.BRANCH_NAME"""
+        sh """echo ${build number}"""
         sh """echo currentBuild.number"""
     }
     stage('test name'){
