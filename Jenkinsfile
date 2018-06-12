@@ -14,7 +14,7 @@ node {
 }
 def getGitBranchVersion() {
     //def content = env.BRANCH_NAME
-    def content = scm.branches[0].name
+    def content = scm.branches[1].name
     def matcher = (content =~ /feature_(.*)/)
     assert matcher.matches()    
     return matcher[0][1]
