@@ -17,5 +17,5 @@ def getGitBranchVersion() {
 //    assert matcher.matches()    
 //    return result
 //    return content
-    return matcher
+    return "stuff"
 }
