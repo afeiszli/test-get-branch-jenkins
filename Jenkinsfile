@@ -1,5 +1,4 @@
 node {
-    def OC_ENV=oc_env()
     def BRANCH_NAME= getGitBranchName
     stage('Checkout'){
         checkout scm
