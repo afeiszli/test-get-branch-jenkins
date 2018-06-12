@@ -1,25 +1,21 @@
 node {
-    def VERSION='nope'
-    def VER=currentBuild.number
-    //if(scm.branches[0].name.contains('feature')){   
-   // }
+    def VERSION='null'
+    if(env.BRANCH_NAME.contains('feature')){   
+        VERSION=getGitBranchVersion()    
+    }
     stage('Checkout'){
         //checkout scm[$class: 'LocalBranch', localBranch: "**"]
         checkout scm
-        VERSION=getGitBranchVersion()
-        sh """echo ${env.BRANCH_NAME}"""
-        sh """echo ${BUILD_NUMBER}"""
-        sh """echo currentBuild.number"""
     }
     stage('test name'){
         sh """echo ${VERSION}"""   
     }
 }
 def getGitBranchVersion() {
-    def content = scm.branches[0].name
-    def matcher = (content =~ /(?<=feature).*/)
-//    assert matcher.matches()    
+    def content = env.BRANCH_NAME
+    def matcher = (content =~ /(?<=feature_).*/)
+    assert matcher.matches()    
 //    return result
-    return content
-//    return matcher[0][1]
+//    return content
+    return matcher[0][1]
 }
